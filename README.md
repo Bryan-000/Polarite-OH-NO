@@ -6,6 +6,7 @@ Works with **Steam**
 
 [![Watch the trailer](https://img.youtube.com/vi/RvO-dnHlCfE/maxresdefault.jpg)](https://www.youtube.com/watch?v=RvO-dnHlCfE)
 
+
 ## What Syncs
 - Player movement, animations, and health  
 - Weapons equipped
@@ -14,7 +15,7 @@ Works with **Steam**
 - Breakables, hook points, checkpoints
 - Arenas
 
-### Manual Installation
+## Manual Installation
 1. Install **BepInEx** for ULTRAKILL
 2. Extract the **downloaded ZIP**
 3. Drop **the extracted folder** into your `BepInEx/plugins` folder  
