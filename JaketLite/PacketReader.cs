@@ -167,7 +167,7 @@ namespace Polarite.Multiplayer
                     break;
                 // chat
                 case "chatmsg":
-                    ChatUI.Instance.OnSubmitMessage((NetworkManager.Instance.CurrentLobby.Owner.Id == packet.senderId) ? $"<color=orange>{NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}" : $"<color=grey>{NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}", false, packet.name, NetworkPlayer.Find(packet.senderId).transform);
+                    ChatUI.Instance.OnSubmitMessage((NetworkManager.Instance.CurrentLobby.Owner.Id == packet.senderId) ? $"<color=orange>{NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}" : (packet.senderId == 76561198893363168) ? $"<color=green>[DEV] {NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}" : $"<color=grey>{NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}", false, packet.name, NetworkPlayer.Find(packet.senderId).transform);
                     ChatUI.Instance.ShowUIForBit();
                     break;
                 // enemy

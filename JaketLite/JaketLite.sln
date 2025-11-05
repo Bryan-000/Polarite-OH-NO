@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarite", "Polarite.csproj", "{11C7A6EC-B123-96F2-4397-8F66F173739E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polarite", "Polarite.csproj", "{1F807CB4-4D22-4300-ADF4-C04802F7AB19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{11C7A6EC-B123-96F2-4397-8F66F173739E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11C7A6EC-B123-96F2-4397-8F66F173739E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11C7A6EC-B123-96F2-4397-8F66F173739E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11C7A6EC-B123-96F2-4397-8F66F173739E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F807CB4-4D22-4300-ADF4-C04802F7AB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F807CB4-4D22-4300-ADF4-C04802F7AB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F807CB4-4D22-4300-ADF4-C04802F7AB19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F807CB4-4D22-4300-ADF4-C04802F7AB19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

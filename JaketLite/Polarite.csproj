@@ -71,7 +71,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ULTRAKILL\BepInEx\core\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="PluginConfigurator">
-      <HintPath>..\..\..\..\Downloads\EternalsTeam-PluginConfigurator-1.10.2\plugins\PluginConfigurator\PluginConfigurator.dll</HintPath>
+      <HintPath>bin\PluginConfigurator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
