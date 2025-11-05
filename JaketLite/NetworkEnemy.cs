@@ -28,12 +28,13 @@ namespace Polarite.Multiplayer
 
         private static readonly WaitForSeconds targetUpdateDelay = new WaitForSeconds(1f);
 
-        public static NetworkEnemy Create(string id, EnemyIdentifier eid)
+        public static NetworkEnemy Create(string id, EnemyIdentifier eid, ulong owner)
         {
             var netE = eid.gameObject.AddComponent<NetworkEnemy>();
             netE.ID = id;
             netE.Enemy = eid;
             netE.IsAlive = true;
+            netE.Owner = owner;
             allEnemies[id] = netE;
 
             if (globalTargetUpdater == null && NetworkManager.Instance != null)
@@ -54,8 +55,10 @@ namespace Polarite.Multiplayer
             {
                 return;
             }
-            Owner = NetworkManager.Instance.CurrentLobby.Owner.Id.Value;
-
+            if(Owner == 0)
+            {
+                Owner = NetworkManager.Instance.CurrentLobby.Owner.Id.Value;
+            }
             DestroyOnCheckpointRestart destroyComp = Enemy.GetComponent<DestroyOnCheckpointRestart>();
             if (destroyComp != null)
                 Destroy(destroyComp);

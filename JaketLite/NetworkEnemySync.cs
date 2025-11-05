@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Steamworks;
+
+using UnityEngine;
 
 namespace Polarite.Multiplayer
 {
@@ -6,6 +8,7 @@ namespace Polarite.Multiplayer
     {
         public string id;
         public bool here;
+        public ulong owner;
 
         void Awake()
         {
@@ -16,11 +19,12 @@ namespace Polarite.Multiplayer
         {
             if(GetComponent<NetworkEnemy>() == null && NetworkManager.InLobby)
             {
-                NetworkEnemy.Create(id, GetComponent<EnemyIdentifier>());
+                NetworkEnemy.Create(id, GetComponent<EnemyIdentifier>(), SteamClient.SteamId);
             }
             if (NetworkManager.InLobby && !here)
             {
                 here = true;
+                owner = SteamClient.SteamId;
                 NetworkManager.Instance.BroadcastPacket(new NetPacket
                 {
                     type = "enemySpawn",

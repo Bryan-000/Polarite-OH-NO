@@ -219,7 +219,9 @@ namespace Polarite.Multiplayer
                     GameObject enemy = SceneObjectCache.Find(packet.name);
                     if (enemy != null)
                     {
-                        enemy.GetComponent<NetworkEnemySync>().here = true;
+                        NetworkEnemySync nES = enemy.GetComponent<NetworkEnemySync>();
+                        nES.owner = packet.senderId;
+                        nES.here = true;
                         enemy.SetActive(true);
                     }
                     break;
