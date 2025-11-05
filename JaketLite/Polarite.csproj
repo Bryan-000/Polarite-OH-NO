@@ -420,6 +420,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChatUI.cs" />
+    <Compile Include="ForceOff.cs" />
     <Compile Include="HeadRotate.cs" />
     <Compile Include="ItePlugin.cs" />
     <Compile Include="NameTag.cs" />

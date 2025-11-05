@@ -80,8 +80,6 @@ namespace Polarite
             "Main Section/9 - Boss Arena/Boss Stuff(Clone)/IntroObjects/WallCollider",
             "Main Section/Outside/2-4/2-4 Stuff(Clone)(Clone)/GlassDoor (Skull)",
             "2 - Organ Hall/2 Stuff(Clone)/Door",
-            "Interiors/5 - Pump Room/5 Stuff/Pre-wall",
-            "Interiors/5 - Pump Room/5 Stuff/ToActivate",
             "Exteriors/14/Cube",
             "Exteriors/Armboy/Cube",
             "3 - Fuckatorium/3 Stuff(Clone)/EntranceCloser",
@@ -337,14 +335,60 @@ namespace Polarite
         }
         public static void CleanLevelOfSoftlocks()
         {
-            foreach(var softlock in PathsToSoftlocks)
+            foreach (string softlock in PathsToSoftlocks)
             {
-                Transform sL = GameObject.Find(softlock)?.transform;
-                if(sL != null)
+                bool v2Patch = softlock == "V2 - Arena/V2 Stuff(Clone)/Door";
+                Transform obj = FindByPath(SceneManager.GetActiveScene().GetRootGameObjects(), softlock);
+                if (obj != null)
                 {
-                    Destroy(sL.gameObject);
+                    if(v2Patch)
+                    {
+                        Destroy(obj.GetComponent<Door>());
+                    }
+                    else
+                    {
+                        if (obj.GetComponent<ForceOff>() == null)
+                        {
+                            obj.gameObject.AddComponent<ForceOff>();
+                        }
+                    }
                 }
             }
+        }
+
+        private static Transform FindByPath(GameObject[] roots, string path)
+        {
+            string[] parts = path.Split('/');
+            foreach (GameObject root in roots)
+            {
+                Transform match = Recurse(root.transform, parts, 0);
+                if (match != null)
+                {
+                    return match;
+                }
+            }
+            return null;
+        }
+
+        private static Transform Recurse(Transform current, string[] parts, int index)
+        {
+            if (current.name != parts[index])
+            {
+                return null;
+            }
+            if (index == parts.Length - 1)
+            {
+                return current;
+            }
+            for (int i = 0; i < current.childCount; i++)
+            {
+                Transform found = Recurse(current.GetChild(i), parts, index + 1);
+                if (found != null)
+                {
+                    return found;
+                }
+            }
+            return null;
         }
 
         private void OnSceneLoaded(Scene args1, LoadSceneMode args2)
