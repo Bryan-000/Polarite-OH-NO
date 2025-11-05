@@ -54,10 +54,6 @@ namespace Polarite.Multiplayer
             {
                 return;
             }
-            if(Owner == 0)
-            {
-                Owner = NetworkManager.Instance.CurrentLobby.Owner.Id.Value;
-            }
             DestroyOnCheckpointRestart destroyComp = Enemy.GetComponent<DestroyOnCheckpointRestart>();
             if (destroyComp != null)
                 Destroy(destroyComp);
@@ -104,6 +100,10 @@ namespace Polarite.Multiplayer
         {
             if (Enemy == null || !IsAlive) return;
 
+            if (Owner == 0)
+            {
+                TakeOwnership(NetworkManager.Instance.CurrentLobby.Owner.Id.Value);
+            }
             Enemy.ignorePlayer = true;
             if(Enemy.dead && IsAlive)
             {

@@ -226,6 +226,10 @@ namespace Polarite.Multiplayer
             chatPanel.SetActive(false);
             NewMovement.Instance.ActivatePlayer();
             NewMovement.Instance.rb.isKinematic = false;
+            FistControl.Instance.enabled = true;
+            CameraController.Instance.enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             isTyping = false;
         }
 
@@ -235,10 +239,11 @@ namespace Polarite.Multiplayer
             {
                 return;
             }
+            /* why don't these even work :sob:
             bool wereCheatsOn = CheatsController.Instance.cheatsEnabled;
             bool wereFistControlOn = FistControl.Instance.enabled;
             bool wereCameraOn = CameraController.Instance.enabled;
-            bool isMenuOpen = !isTyping;
+            */
 
             isTyping = !isTyping;
 
@@ -246,21 +251,21 @@ namespace Polarite.Multiplayer
             {
                 NewMovement.Instance.DeactivatePlayer();
                 NewMovement.Instance.rb.isKinematic = true;
-                CheatsController.Instance.enabled = !wereCheatsOn;
                 FistControl.Instance.enabled = false;
                 CameraController.Instance.enabled = false;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                chatPanel.SetActive(true);
             }
             else
             {
                 NewMovement.Instance.ActivatePlayer();
                 NewMovement.Instance.rb.isKinematic = false;
-                CheatsController.Instance.cheatsEnabled = wereCheatsOn;
-                FistControl.Instance.enabled = wereFistControlOn;
-                CameraController.Instance.enabled = wereCameraOn;
+                FistControl.Instance.enabled = true;
+                CameraController.Instance.enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                chatPanel.SetActive(false);
             }
         }
 

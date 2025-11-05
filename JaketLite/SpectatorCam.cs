@@ -42,7 +42,7 @@ namespace Polarite
             HandleCameraRotation();
 
             Transform target = playerTargets[currentIndex];
-            if (target == null) return;
+            if (target == null) NextPlayer();
 
             Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
 
@@ -87,6 +87,10 @@ namespace Polarite
 
             Vector3 dir = (targets[0].position - transform.position).normalized;
             yaw = Quaternion.LookRotation(dir).eulerAngles.y;
+        }
+        public void UpdateTargets(List<Transform> newList)
+        {
+            playerTargets = newList;
         }
 
         public void StopSpectating()
