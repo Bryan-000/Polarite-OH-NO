@@ -91,7 +91,6 @@ namespace Polarite.Multiplayer
             }
             DontDestroyOnLoad(gameObject);
             SpawnNoise();
-            UpdateShaders();
         }
         private void OnSceneLoaded(Scene args, LoadSceneMode args2)
         {
@@ -332,34 +331,6 @@ namespace Polarite.Multiplayer
                     mats[2].shader = MonoSingleton<DefaultReferenceManager>.Instance.masterShader;
                     break;
             }
-            mainRenderer.materials = mats;
-            SkinnedMeshRenderer[] armsStuff = armAnimator.GetComponentsInChildren<SkinnedMeshRenderer>();
-            foreach (var a in armsStuff)
-            {
-                Material[] mats1 = a.materials;
-                foreach (var m in mats1)
-                {
-                    m.shader = MonoSingleton<DefaultReferenceManager>.Instance.masterShader;
-                }
-                a.materials = mats1;
-            }
-            foreach (var w in weapons)
-            {
-                SkinnedMeshRenderer s = w.GetComponentInChildren<SkinnedMeshRenderer>();
-                Material[] mats2 = s.materials;
-                foreach (var m in mats2)
-                {
-                    m.shader = MonoSingleton<DefaultReferenceManager>.Instance.masterShader;
-                }
-                s.materials = mats2;
-            }
-        }
-        public void UpdateShaders()
-        {
-            Material[] mats = mainRenderer.materials;
-            mats[0].shader = MonoSingleton<DefaultReferenceManager>.Instance.masterShader;
-            mats[1].shader = MonoSingleton<DefaultReferenceManager>.Instance.masterShader;
-            mats[2].shader = MonoSingleton<DefaultReferenceManager>.Instance.masterShader;
             mainRenderer.materials = mats;
             SkinnedMeshRenderer[] armsStuff = armAnimator.GetComponentsInChildren<SkinnedMeshRenderer>();
             foreach (var a in armsStuff)
