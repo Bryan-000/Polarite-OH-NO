@@ -452,6 +452,7 @@ namespace Polarite.Multiplayer
             src.spatialBlend = 1f;
             src.rolloffMode = AudioRolloffMode.Logarithmic;
             src.minDistance = 2f;
+            src.dopplerLevel = 0f;
             // use configured proximity range for spatial maxDistance
             src.maxDistance = ItePlugin.voiceProximity.value;
             src.loop = false;
