@@ -46,7 +46,8 @@ namespace Polarite.Patches
                         acceptCount++;
                 }
 
-                neededToSkip = Mathf.CeilToInt(total * 0.5f);
+                // require unanimous consent: all players must accept
+                neededToSkip = total;
 
                 PacketWriter w = new PacketWriter();
                 w.WriteInt(acceptCount);
