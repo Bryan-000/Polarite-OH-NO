@@ -579,8 +579,8 @@ namespace Polarite.Multiplayer
                 {
                     if (CurrentLobby.GetData("banned_" + id) == "1")
                     {
-                        //if (AmIHost()) ChatUI.OnSubmitMessage($"") i was gonna put a msg or smt here
-                        KickPlayer(id, true); // try to kick the player incase they just didnt get the packet or smt
+                        KickPlayer(id, true); // try to ban the player again
+                                              // incase they just didnt get the packet or smt idk :P
                         continue;
                     }
 
